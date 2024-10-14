@@ -90,6 +90,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.cmd 'language en_US'
+
 require 'options'
 require 'keymaps'
 require 'autocommands'
