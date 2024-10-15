@@ -46,17 +46,33 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Telescope picker. This is really useful to discover what Telescope can
     -- do as well as how to actually do it!
 
+    local focus_preview = function(prompt_bufnr)
+      local action_state = require 'telescope.actions.state'
+      local picker = action_state.get_current_picker(prompt_bufnr)
+      local prompt_win = picker.prompt_win
+      local previewer = picker.previewer
+      local winid = previewer.state.winid
+      local bufnr = previewer.state.bufnr
+      vim.keymap.set('n', '<Tab>', function()
+        vim.cmd(string.format('noautocmd lua vim.api.nvim_set_current_win(%s)', prompt_win))
+      end, { buffer = bufnr })
+      vim.cmd(string.format('noautocmd lua vim.api.nvim_set_current_win(%s)', winid))
+    end
+
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        mappings = {
+          n = {
+            ['<Tab>'] = focus_preview,
+          },
+          i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+        },
+      },
       -- pickers = {}
       extensions = {
         ['ui-select'] = {
