@@ -8,6 +8,7 @@ return { -- Highlight, edit, and navigate code
     end
     ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup { -- Sets main module to use for opts
+      ensure_installed = { 'gitcommit', 'bash', 'diff' },
       -- ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       additional_vim_regex_highlighting = true,
       auto_install = true,
