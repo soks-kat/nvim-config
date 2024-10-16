@@ -5,7 +5,7 @@ return {
     local open_config = function()
       local config_path = vim.call('stdpath', 'config')
       vim.cmd('cd ' .. config_path)
-      vim.cmd 'Explore'
+      vim.cmd 'Neotree'
     end
     require('dashboard').setup {
       theme = 'doom',
