@@ -2,6 +2,11 @@ return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = function()
+    local open_config = function()
+      local config_path = vim.call('stdpath', 'config')
+      vim.cmd('cd ' .. config_path)
+      vim.cmd 'Explore'
+    end
     require('dashboard').setup {
       theme = 'doom',
       config = {
@@ -12,11 +17,11 @@ return {
             action = 'DashboardNewFile',
             shortcut = 'SPC o',
           },
-          {
-            icon = ' ',
-            desc = 'Browse Files        ',
-            shortcut = 'SPC n',
-          },
+          -- {
+          --   icon = ' ',
+          --   desc = 'Browse Files        ',
+          --   shortcut = 'SPC n',
+          -- },
           {
             icon = ' ',
             desc = 'Find File           ',
@@ -26,7 +31,7 @@ return {
           {
             icon = ' ',
             desc = 'Configure Neovim    ',
-            action = 'stdpath("config")',
+            action = open_config,
             shortcut = 'SPC v',
           },
           {
