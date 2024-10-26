@@ -7,13 +7,24 @@ return {
       vim.cmd('cd ' .. config_path)
       vim.cmd 'Neotree'
     end
+
     require('dashboard').setup {
+      -- theme = 'hyper',
       theme = 'doom',
+      preview = {
+        -- command = 'lolcrab',
+        -- command = vim.fn.stdpath 'config' .. '/test',
+        command = 'python ' .. vim.fn.stdpath 'config' .. '/header.py',
+        file_path = vim.fn.stdpath 'config' .. '/art.txt',
+        file_width = 71,
+        file_height = 13,
+      },
       config = {
         center = {
           {
             icon = ' ',
             desc = 'New File            ',
+            -- desc = vim.fn.hostname(),
             action = 'DashboardNewFile',
             shortcut = 'SPC o',
           },
