@@ -33,6 +33,7 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
     {
       'hrsh7th/cmp-cmdline',
       -- event = 'VimEnter',
@@ -52,7 +53,7 @@ return { -- Autocompletion
           luasnip.lsp_expand(args.body)
         end,
       },
-      completion = { completeopt = 'menu,menuone,noselect,preview' },
+      completion = { completeopt = 'menu,menuone,popup' },
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -115,6 +116,7 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
       },
     }
 

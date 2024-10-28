@@ -4,6 +4,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-dap.nvim',
+    'debugloop/telescope-undo.nvim',
+    'nvim-telescope/telescope-project.nvim',
     {
       'nvim-telescope/telescope-file-browser.nvim',
     },
@@ -85,6 +88,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'file_browser')
+    pcall(require('telescope').load_extension, 'dap')
+    pcall(require('telescope').load_extension, 'undo')
+    require('telescope').load_extension 'project'
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -98,6 +104,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+    vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
+    vim.keymap.set('n', '<leader>p', '<cmd>Telescope project<cr>')
 
     vim.keymap.set('n', '<space>fb', ':Telescope file_browser<CR>')
 

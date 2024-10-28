@@ -8,6 +8,15 @@ return {
       vim.cmd 'Neotree'
     end
 
+    local additional_items = {
+      {
+        icon = ' ',
+        desc = 'Configure Neovim    ',
+        action = open_config,
+        shortcut = 'SPC v',
+      },
+    }
+
     require('dashboard').setup {
       -- theme = 'hyper',
       theme = 'doom',
@@ -28,11 +37,6 @@ return {
             action = 'DashboardNewFile',
             shortcut = 'SPC o',
           },
-          -- {
-          --   icon = ' ',
-          --   desc = 'Browse Files        ',
-          --   shortcut = 'SPC n',
-          -- },
           {
             icon = ' ',
             desc = 'Find File           ',
