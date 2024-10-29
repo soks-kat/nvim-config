@@ -43,12 +43,7 @@ return {
             action = 'Telescope find_files',
             shortcut = 'SPC f',
           },
-          {
-            icon = ' ',
-            desc = 'Configure Neovim    ',
-            action = open_config,
-            shortcut = 'SPC v',
-          },
+          unpack(additional_items),
           {
             icon = ' ',
             desc = 'Exit Neovim              ',
