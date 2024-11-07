@@ -55,13 +55,18 @@ return {
       action = 'quit',
     })
 
+    local pythoncmd = 'python3'
+    if vim.fn.has 'win32' == 1 then
+      pythoncmd = 'python'
+    end
+
     require('dashboard').setup {
       -- theme = 'hyper',
       theme = 'doom',
       preview = {
         -- command = 'lolcrab',
         -- command = vim.fn.stdpath 'config' .. '/test',
-        command = 'python3 ' .. vim.fn.stdpath 'config' .. '/header.py',
+        command = pythoncmd .. ' ' .. vim.fn.stdpath 'config' .. '/header.py',
         file_path = vim.fn.stdpath 'config' .. '/art.txt',
         file_width = 71,
         file_height = 13,

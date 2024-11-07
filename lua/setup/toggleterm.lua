@@ -5,12 +5,12 @@ return {
     require('toggleterm').setup {
       -- open_mapping = [[<leader>o]],
       start_in_insert = true,
+      shell = 'pwsh',
     }
     vim.keymap.set('n', '<leader>o', ':ToggleTerm<Cr>')
-    local exitTerm = function()
-      vim.cmd ':ToggleTerm'
-    end
 
-    vim.keymap.set('t', '<esc><esc>', exitTerm)
+    vim.keymap.set('t', '<esc>', function()
+      vim.cmd.stopinsert()
+    end)
   end,
 }
