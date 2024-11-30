@@ -8,6 +8,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.keymap.set('n', '<C-S-a>', 'ggVG', { desc = 'Select all' })
+vim.keymap.set('n', '<A-o>', 'o<Esc>', { desc = 'Insert a new line below the cursor' })
+vim.keymap.set('n', '<A-O>', 'O<Esc>', { desc = 'Insert a new line above the cursor' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
