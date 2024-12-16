@@ -163,6 +163,12 @@ return {
         end,
       },
       codelldb = {},
+      tinymist = {
+        single_file_support = true,
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
+      },
       -- gopls = {},
       pyright = {},
       -- rust_analyzer = {},
