@@ -1,5 +1,6 @@
 return {
-  'NullSeile/flashbang.nvim',
+  dir = 'C:\\Users\\elies\\Documents\\Development\\nvim\\flashbang.nvim',
+  -- 'NullSeile/flashbang.nvim',
   config = function()
     require('flashbang').setup {
       min_interval = 5,
