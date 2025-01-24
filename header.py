@@ -46,7 +46,7 @@ for file in os.listdir(temp_dir):
     os.remove(os.path.join(temp_dir, file))
 
 temp_file = os.path.join(temp_dir, f"{seed}.txt")
-print(temp_file)
+# print(temp_file)
 
 with open(banner_path, 'r', encoding="utf-8") as file:
     banner = file.read().splitlines()
@@ -88,7 +88,7 @@ while True:
     with open(temp_file, 'w', encoding="utf-8") as file:
         file.write("\n".join(content))
 
-    print("\033[H\033[J", end="\n")
+    print("\033[H\033[?25l", end="\n")
     # run(["lolcrab", "-a", temp_file], text=True)
     run(["lolcrab", "-S", seed, temp_file], text=True)
     time.sleep(0.5)
