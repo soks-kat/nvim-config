@@ -23,7 +23,7 @@ return {
 
       require('kanagawa').setup {
         compile = true,
-        transparent = true,
+        transparent = false,
         colors = {
           palette = {
             sumiInk0 = bg(p.sumiInk0),

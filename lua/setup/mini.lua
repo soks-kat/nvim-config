@@ -65,7 +65,7 @@ return { -- Collection of various small independent plugins/modules
         set_mark('c', vim.fn.stdpath 'config', 'Config') -- path
         set_mark('w', vim.fn.getcwd, 'Working directory') -- callable
         set_mark('~', '~', 'Home directory')
-        set_mark('d', '~/Documents/Development/', 'Development')
+        -- set_mark('d', '~/Documents/Development/', 'Development')
       end,
     })
     -- vim.keymap.nnoremap { '<leader>g', '<cmd>lua require("mini.git").status()<CR>' }

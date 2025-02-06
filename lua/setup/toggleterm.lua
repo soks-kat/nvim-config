@@ -5,7 +5,7 @@ return {
     require('toggleterm').setup {
       -- open_mapping = [[<leader>o]],
       start_in_insert = true,
-      shell = 'pwsh',
+      shell = 'fish',
     }
     vim.keymap.set('n', '<leader>o', ':ToggleTerm<Cr>')
 
