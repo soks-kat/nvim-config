@@ -62,6 +62,7 @@ banner_x = (width - banner_w) // 2
 x = 40
 y = height - frame_h
 i = 0
+t = 0
 while True:
     if x <= -frame_w:
         x = width
@@ -90,7 +91,10 @@ while True:
 
     print("\033[H\033[?25l", end="\n")
     # run(["lolcrab", "-a", temp_file], text=True)
-    run(["lolcrab", "-S", seed, temp_file], text=True)
-    time.sleep(0.5)
-    i += 1
-    x -= 1
+    run(["lolcrab", "-S", seed, "-z", str(t), temp_file], text=True)
+    time.sleep(0.05)
+    t += 1
+    if t % 10 == 0:
+        i += 1
+        x -= 1
+
