@@ -30,7 +30,7 @@ return { -- Collection of various small independent plugins/modules
       --   },
       -- },
     }
-    vim.keymap.set('n', '<leader>go', '<cmd>lua require("mini.diff").toggle_overlay()<CR>')
+    vim.keymap.set({ 'n', 'v' }, '<leader>go', '<cmd>lua require("mini.diff").toggle_overlay()<CR>')
 
     require('mini.files').setup()
 
