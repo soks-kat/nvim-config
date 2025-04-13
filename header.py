@@ -54,8 +54,8 @@ with open(banner_path, 'r', encoding="utf-8") as file:
 banner_w = len(banner[0])
 banner_h = len(banner)
 
-width = 70
-height = 11
+width = banner_w+2
+height = banner_h+1
 
 banner_x = (width - banner_w) // 2
 

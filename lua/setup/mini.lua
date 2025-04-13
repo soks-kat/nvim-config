@@ -34,6 +34,12 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.files').setup()
 
+    vim.keymap.set('n', '<esc>', function(...)
+      if not MiniFiles.open(...) then
+        MiniFiles.close()
+      end
+    end)
+
     vim.keymap.set('n', '<leader>f', function(...)
       if not MiniFiles.close() then
         MiniFiles.open(...)

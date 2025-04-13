@@ -67,7 +67,7 @@ return {
         -- command = 'lolcrab',
         -- command = vim.fn.stdpath 'config' .. '/test',
         command = pythoncmd .. ' ' .. vim.fn.stdpath 'config' .. '/header.py',
-        file_path = vim.fn.stdpath 'config' .. '/art.txt',
+        file_path = vim.fn.stdpath 'config' .. '/soksKat.txt',
         file_width = 71,
         file_height = 13,
       },
