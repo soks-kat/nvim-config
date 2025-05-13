@@ -21,6 +21,15 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
+
+spec = {
+  {
+    "azratul/live-share.nvim",
+    dependencies = {
+      "jbyuki/instant.nvim"
+    }
+  }
+}
 require('lazy').setup('setup', {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -42,6 +51,7 @@ require('lazy').setup('setup', {
     },
   },
 })
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

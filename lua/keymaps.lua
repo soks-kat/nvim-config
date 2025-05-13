@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<C-S-a>', 'ggVG', { desc = 'Select all' })
 vim.keymap.set('n', '<A-o>', 'o<Esc>', { desc = 'Insert a new line below the cursor' })
 vim.keymap.set('n', '<A-O>', 'O<Esc>', { desc = 'Insert a new line above the cursor' })
-vim.keymap.set('n', '<leader>,', '`eA;<esc>e', { desc = 'Insert a new line above the cursor' })
+vim.keymap.set('n', '<leader>,', 'meA;<esc>`e', { desc = 'Add ; at end of line' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
