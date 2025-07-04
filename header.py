@@ -5,39 +5,46 @@ import time
 
 banner_path = sys.argv[1]
 
+m_red = '#f38ba8'
+m_orange = '#fab387'
+m_yellow = '#f9e2af'
+m_green = '#a6e3a1'
+m_blue = '#89b4fa'
+m_purple = '#cba6f7'
 
 seed = str(int(time.time()))
 
-animation=[
-[
-"   ᨈ ܢ      ",
-"  (^˕^)ᜪ_⎠  ",
-"  |ˎ     )  ",
-"  ૮ᒐ \"\"૮ᒐᐟ  ",
-],
-[
-"  /ᐠ_^      ",
-" (^˕^ )__⎠  ",
-"  |ˎ     )  ",
-"  ᒐ૮ \"\"ᒐ૮ᐟ  ",
-],
-[
-"  ᨈ /\\      ",
-" (^˕^)___/  ",
-"  |ˎ     )  ",
-"  ૮ᒐ \"\"૮ᒐᐟ  ",
-],
-[
-"  /ᐠ_^      ",
-" (^˕^ )__/  ",
-"  |ˎ     )  ",
-"  ᒐ૮ \"\"ᒐ૮ᐟ  ",
-]]
+animation = [
+    [
+        '   ᨈ ܢ      ',
+        '  (^˕^)ᜪ_⎠  ',
+        '  |ˎ     )  ',
+        '  ૮ᒐ ""૮ᒐᐟ  ',
+    ],
+    [
+        '  /ᐠ_^      ',
+        ' (^˕^ )__⎠  ',
+        '  |ˎ     )  ',
+        '  ᒐ૮ ""ᒐ૮ᐟ  ',
+    ],
+    [
+        '  ᨈ /\\      ',
+        ' (^˕^)___/  ',
+        '  |ˎ     )  ',
+        '  ૮ᒐ ""૮ᒐᐟ  ',
+    ],
+    [
+        '  /ᐠ_^      ',
+        ' (^˕^ )__/  ',
+        '  |ˎ     )  ',
+        '  ᒐ૮ ""ᒐ૮ᐟ  ',
+    ],
+]
 
 frame_w = 12
 frame_h = 4
 
-temp_dir = os.path.join(os.path.dirname(banner_path), "temp")
+temp_dir = os.path.join(os.path.dirname(banner_path), 'temp')
 
 if not os.path.exists(temp_dir):
     os.makedirs(temp_dir)
@@ -45,17 +52,17 @@ if not os.path.exists(temp_dir):
 for file in os.listdir(temp_dir):
     os.remove(os.path.join(temp_dir, file))
 
-temp_file = os.path.join(temp_dir, f"{seed}.txt")
+temp_file = os.path.join(temp_dir, f'{seed}.txt')
 # print(temp_file)
 
-with open(banner_path, 'r', encoding="utf-8") as file:
+with open(banner_path, 'r', encoding='utf-8') as file:
     banner = file.read().splitlines()
 
 banner_w = len(banner[0])
 banner_h = len(banner)
 
-width = banner_w+2
-height = banner_h+1
+width = banner_w + 2
+height = banner_h + 1
 
 banner_x = (width - banner_w) // 2
 
@@ -73,28 +80,45 @@ while True:
 
     # Add the banner
     for j, line in enumerate(banner):
-        content[j] = content[j][:banner_x] + line + content[j][banner_x + banner_w:]
+        content[j] = (
+            content[j][:banner_x] + line + content[j][banner_x + banner_w :]
+        )
 
     # Add the frame
     for j, line in enumerate(frame):
-        out = content[y+j]
+        out = content[y + j]
         if x + frame_w > width:
-            out = out[:x] + line[:width - x]
+            out = out[:x] + line[: width - x]
         elif x < 0:
-            out = line[-x:] + out[frame_w + x:]
+            out = line[-x:] + out[frame_w + x :]
         else:
-            out = out[:x] + line + out[x + frame_w:]
-        content[y+j] = out
+            out = out[:x] + line + out[x + frame_w :]
+        content[y + j] = out
 
-    with open(temp_file, 'w', encoding="utf-8") as file:
-        file.write("\n".join(content))
+    with open(temp_file, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(content))
 
-    print("\033[H\033[?25l", end="\n")
+    gradient = (
+        f'{m_red}, {m_orange}, {m_yellow}, {m_green}, {m_blue}, {m_purple}'
+    )
+
+    print('\033[H\033[?25l', end='\n')
     # run(["lolcrab", "-a", temp_file], text=True)
-    run(["lolcrab", "-S", seed, "-z", str(t), temp_file], text=True)
+    run(
+        [
+            'lolcrab',
+            '-S',
+            seed,
+            '-z',
+            str(t),
+            temp_file,
+            '-c',
+            gradient,
+        ],
+        text=True,
+    )
     time.sleep(0.05)
     t += 1
     if t % 10 == 0:
         i += 1
         x -= 1
-

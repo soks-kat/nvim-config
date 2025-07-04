@@ -60,6 +60,14 @@ return {
       pythoncmd = 'python'
     end
 
+    if vim.api.nvim_win_get_width(0) >= 90 then
+      art = 'soksKat.txt'
+      width = 90
+    else
+      art = 'soks.txt'
+      width = 45
+    end
+
     require('dashboard').setup {
       -- theme = 'hyper',
       theme = 'doom',
@@ -67,9 +75,9 @@ return {
         -- command = 'lolcrab',
         -- command = vim.fn.stdpath 'config' .. '/test',
         command = pythoncmd .. ' ' .. vim.fn.stdpath 'config' .. '/header.py',
-        file_path = vim.fn.stdpath 'config' .. '/soksKat.txt',
-        file_width = 71,
-        file_height = 13,
+        file_path = vim.fn.stdpath 'config' .. '/' .. art,
+        file_width = width,
+        file_height = 16,
       },
       config = {
         center = center,
